@@ -1,0 +1,10 @@
+<h1>Flats in London</h1>
+<% @flats.each do |flat| %>
+  <div class="card">
+    <%= link_to flat_path(flat) do %>
+      <%= flat.name %>
+      <p>£<%= flat.price_per_night %>/night</p>
+      <p>Capacity: <%= "#{flat.number_of_guests} #{'guest'.pluralize(flat.number_of_guests)}" %></p>
+    <% end %>
+  </div>
+<% end %>
