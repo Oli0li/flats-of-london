@@ -8,6 +8,11 @@
 puts "Destroying all flats..."
 Flat.destroy_all
 
+puts "Creating new users..."
+User.create!(
+
+)
+
 puts "Creating new flats..."
 
 Flat.create!(
