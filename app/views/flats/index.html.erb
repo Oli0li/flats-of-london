@@ -1,13 +1,18 @@
+
 <h1>Flats in London</h1>
-<% @flats.each do |flat| %>
-  <div class="card">
-    <%= link_to flat_path(flat) do %>
-      <%= flat.name %>
-      <p>£<%= flat.price_per_night %>/night</p>
-      <p>Added by: <%= flat.user.name %></p>
-      <p>Capacity: <%= "#{flat.number_of_guests} #{'guest'.pluralize(flat.number_of_guests)}" %></p>
-    <% end %>
-  </div>
-<% end %>
+<div class="row">
+  <% @flats.each do |flat| %>
+    <div class="col-4">
+      <div class="card">
+        <%= link_to flat_path(flat) do %>
+          <%= flat.name %>
+          <p>£<%= flat.price_per_night %>/night</p>
+          <p>Added by: <%= flat.user.name %></p>
+          <p>Capacity: <%= "#{flat.number_of_guests} #{'guest'.pluralize(flat.number_of_guests)}" %></p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
 
 <%= link_to "Rent your property", new_flat_path, class: "btn btn-primary mt-3" %>
