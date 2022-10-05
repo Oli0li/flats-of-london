@@ -4,6 +4,15 @@ class FlatsController < ApplicationController
 
   def index
     @flats = Flat.all
+    # Now we give Mapbox a list of coordinates for all flats
+    # Same as : @markers = Flat.where.not(latitude: nil, longitude: nil)
+    # Flat.geocoded = returns all instances of flats with latitude and longitude
+    @markers = Flat.geocoded.map do |flat|
+      {
+        lng: flat.longitude,
+        lat: flat.latitude
+      }
+    end
   end
 
   def new
