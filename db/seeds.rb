@@ -64,8 +64,8 @@ puts "Flat 2 created"
 
 Flat.create!(
   name: 'Spacious flat in the heart of Chiswick',
-  address: '236 Baker St, London NW1 5RS',
-  description: 'A quaint room in the heart of London. One double bedroom with view on the Sherlock Holmes Museum.',
+  address: '214 Chiswick High Road, London W4 1PD',
+  description: 'A spacious flat near the Sunday market, close to shops and restaurants.',
   price_per_night: 75,
   number_of_guests: 2,
   user: mel
