@@ -43,7 +43,7 @@ puts "User 4 created"
 puts "Creating new flats..."
 
 Flat.create!(
-  name: 'Stunning flat in a quiet area',
+  name: 'Charming flat in a quiet area',
   address: '10 Clifton Gardens, London W9 1DT',
   description: 'A lovely summer feel for this spacious garden flat. Two double bedrooms, open plan living area, large kitchen and a beautiful conservatory',
   price_per_night: 90,
@@ -53,29 +53,29 @@ Flat.create!(
 puts "Flat 1 created"
 
 Flat.create!(
-  name: 'Charming room with a historic flair',
-  address: '236 Baker St, London NW1 5RS',
-  description: 'A quaint room in the heart of London. One double bedroom with view on the Sherlock Holmes Museum',
-  price_per_night: 85,
+  name: 'Modern penthouse in Waterloo',
+  address: "200 Westminster Bridge Rd, London SE1 7UT",
+  description: 'This modern penthouse has everything you could ask for, including a view on the Houses of Parliament and London Eye.',
+  price_per_night: 100,
   number_of_guests: 2,
   user: linda
 )
 puts "Flat 2 created"
 
 Flat.create!(
-  name: 'Spacious flat in the heart of Chiswick',
-  address: '214 Chiswick High Road, London W4 1PD',
-  description: 'A spacious flat near the Sunday market, close to shops and restaurants.',
-  price_per_night: 75,
+  name: 'Spacious flat in the heart of London',
+  address: '36 Bloomsbury Way, London WC1A 2SD',
+  description: 'A spacious flat in a very central location, close to the British Museum, shops and restaurants.',
+  price_per_night: 120,
   number_of_guests: 2,
   user: mel
 )
 puts "Flat 3 created"
 
 Flat.create!(
-  name: 'Beautiful studio near Paddington station and Hyde Park',
-  address: '4 Sussex Place, London W2 2TP',
-  description: 'Modern studio with all necessary amenities, just an 8-minute walk from Paddington station and Hyde Park.',
+  name: 'Beautiful studio in Spitafields',
+  address: '40 Fashion St, London E1 6PX',
+  description: 'Modern studio with all necessary amenities, close to Spitafields Market and the vibrant district of Shoreditch.',
   price_per_night: 100,
   number_of_guests: 3,
   user: linda
@@ -86,18 +86,18 @@ Flat.create!(
   name: 'Cosy flat near Camden Town',
   address: '101 Bayham St, London NW1 0AG',
   description: 'A quiet flat close to the bustling market of Camden. En-suite bathroom and large kitchen with all modern amenities.',
-  price_per_night: 65,
+  price_per_night: 75,
   number_of_guests: 2,
   user: robert
 )
 puts "Flat 5 created"
 
 Flat.create!(
-  name: 'Stunning manor house in Richmond',
-  address: '135 Petersham road, Richmond TW10 7AA',
-  description: '17th century manor house opposite Richmond Park. Huge garden with swimming pool, 5 double bedrooms, en-suite bathrooms and a modern kitchen.',
-  price_per_night: 2000,
-  number_of_guests: 7,
+  name: 'Stunning flat in a historical house',
+  address: "100 Queen's Gate, London SW7 5AG",
+  description: '17th century house in South Kensington, near the museums. Very chic district with convenient access to central London.',
+  price_per_night: 200,
+  number_of_guests: 2,
   user: josh
 )
 puts "Flat 6 created"
