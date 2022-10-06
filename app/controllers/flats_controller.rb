@@ -11,7 +11,8 @@ class FlatsController < ApplicationController
       {
         lng: flat.longitude,
         lat: flat.latitude,
-        info_window: render_to_string(partial: "info_window", locals: {flat: flat})
+        info_window: render_to_string(partial: "info_window", locals: {flat: flat}),
+        image_url: helpers.asset_url("flats_of_london_marker.png")
       }
     end
   end
