@@ -1,0 +1,9 @@
+.mapboxgl-popup {
+  max-width: 300px !important;
+  border-radius: 5px;
+}
+
+
+.mapboxgl-popup-content p {
+  margin-bottom: 0;
+}
