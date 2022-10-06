@@ -66,8 +66,8 @@ Flat.create!(
   name: 'Spacious flat in the heart of London',
   address: '36 Bloomsbury Way, London WC1A 2SD',
   description: 'A spacious flat in a very central location, close to the British Museum, shops and restaurants.',
-  price_per_night: 120,
-  number_of_guests: 2,
+  price_per_night: 150,
+  number_of_guests: 3,
   user: mel
 )
 puts "Flat 3 created"
