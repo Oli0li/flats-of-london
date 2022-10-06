@@ -1,24 +1,11 @@
-# README
+# AirBnb-like website
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is still in progress.
 
-Things you may want to cover:
+With this website, users can:
+- see all properties to rent and their details, with maps to show where the properties are located
+- put their own property to rent
+- make changes to their property's
+- remove their property from all listings
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Created with Ruby on Rails, using the Mapbox API.
