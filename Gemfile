@@ -39,6 +39,9 @@ gem "redis", "~> 4.0"
 # Devise for authentification
 gem "devise"
 
+# Cloudinary for stocking pictures
+gem "cloudinary"
+
 # Simple form
 gem "simple_form", github: "heartcombo/simple_form"
 
