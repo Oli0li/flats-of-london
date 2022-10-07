@@ -14,3 +14,5 @@
  *= require_self
  */
 @import "map_popups.css";
+@import "navbar";
+@import "avatar";
