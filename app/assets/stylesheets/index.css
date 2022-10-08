@@ -1,3 +1,8 @@
 .flat-index-container h1 {
   text-align: center;
+  color: white;
+}
+
+.flat-index-container h4 {
+  color: white;
 }
