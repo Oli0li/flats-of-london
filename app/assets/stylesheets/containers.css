@@ -3,3 +3,8 @@
   margin: 20px auto;
   color: white;
 }
+
+.map-container {
+  margin: 30px 0 40px 0;
+  border-radius: 5px;
+}
