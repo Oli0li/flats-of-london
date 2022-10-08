@@ -13,10 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
-body {
-  background-image: url("pexels-jerome-dominici-269128.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}

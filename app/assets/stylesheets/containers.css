@@ -1,6 +1,14 @@
 .flat-index-container {
+  background-image: url("pexels-jerome-dominici-269128.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.components-container {
   width: 80%;
-  margin: 20px auto;
+  margin: 0 auto;
+  padding: 20px 0;
 }
 
 .map-container {
