@@ -8,3 +8,12 @@
   margin: 30px 0 40px 0;
   border-radius: 5px;
 }
+
+.add-property-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.add-property-container h4 {
+  margin-top: 0;
+}
