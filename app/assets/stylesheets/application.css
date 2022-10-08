@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
-@import "map_popups.css";
-@import "navbar";
-@import "avatar";
+
+body {
+  background-image: url("pexels-jerome-dominici-269128.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}

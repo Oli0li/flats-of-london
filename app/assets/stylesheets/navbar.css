@@ -1,0 +1,28 @@
+.navbar-lewagon {
+  justify-content: space-between;
+  background: white;
+  border-bottom: 1px solid purple;
+  /* background-image: url(purple_icons_background_small.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; */
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 100px;
+  height: 50px;
+}
+
+.navbar-nav {
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-item:not(:last-child) {
+  background-color: white;
+  font-weight: bold;
+}
