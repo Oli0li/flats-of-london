@@ -17,6 +17,7 @@ robert = User.create!(
   email: "robert@mail.com",
   password: "ilikeflats"
 )
+
 puts "User 1 created"
 
 linda = User.create!(
@@ -39,6 +40,18 @@ josh = User.create!(
   password: "ilikeflats4"
 )
 puts "User 4 created"
+
+puts "adding user pictures"
+
+users = User.all
+
+4.times do |x|
+  url = Cloudinary::Uploader.upload("app/assets/images/user_picture_#{x + 1}.jpg")["secure_url"]
+  picture = URI.open(url)
+  users[x].photo.attach(io: picture, filename: "user_#{x + 1}.jpg", content_type: "image/jpg")
+end
+
+puts "user pictures added"
 
 puts "Creating new flats..."
 
