@@ -25,7 +25,7 @@
                   <p>Added by: <%= flat.user.name %></p>
                   <h2>£<%= flat.price_per_night %>/night</h2>
                 </div>
-                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="flat-card-user avatar-bordered" />
+                <img src="<%= cl_image_path flat.user.photo.key, gravity: :face, height: 40, width: 40, zoom: 0.7, crop: :thumb %>" class="flat-card-user avatar-bordered" />
               </div>
             <% end %>
           </div>
