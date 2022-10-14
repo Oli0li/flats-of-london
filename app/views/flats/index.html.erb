@@ -15,7 +15,7 @@
         <div class="col-4">
           <div class="card flat-card">
             <%= link_to flat_path(flat) do %>
-              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+              <img src="<%= cl_image_path flat.photo.key %>" />
               <div class="flat-card-infos">
                 <div>
                   <h2><%= flat.name %></h2>
