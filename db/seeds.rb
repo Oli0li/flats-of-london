@@ -114,4 +114,17 @@ Flat.create!(
   user: josh
 )
 puts "Flat 6 created"
+
+puts "adding flat pictures"
+
+flats = Flat.all
+
+6.times do |x|
+  url = Cloudinary::Uploader.upload("app/assets/images/flat_picture_#{x + 1}.jpg")["secure_url"]
+  picture = URI.open(url)
+  flats[x].photo.attach(io: picture, filename: "flat_#{x + 1}.jpg", content_type: "image/jpg")
+end
+
+puts "flat pictures added"
+
 puts "All done!"
