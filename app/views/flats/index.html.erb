@@ -19,10 +19,10 @@
               <div class="flat-card-infos">
                 <div>
                   <h2><%= flat.name %></h2>
-                  <p>Capacity: <%= "#{flat.number_of_guests} #{'guest'.pluralize(flat.number_of_guests)}" %></p>
+                  <p>Up to <%= "#{flat.number_of_guests} #{'guest'.pluralize(flat.number_of_guests)}" %></p>
                 </div>
                 <div>
-                  <p>Added by: <%= flat.user.name %></p>
+                  <p><%= flat.user.name %></p>
                   <h2>£<%= flat.price_per_night %>/night</h2>
                 </div>
                 <img src="<%= cl_image_path flat.user.photo.key, gravity: :face, height: 40, width: 40, zoom: 0.7, crop: :thumb %>" class="flat-card-user avatar-bordered" />
