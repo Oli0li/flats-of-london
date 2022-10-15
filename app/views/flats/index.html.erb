@@ -21,11 +21,13 @@
                   <h2><%= flat.name %></h2>
                   <p>Up to <%= "#{flat.number_of_guests} #{'guest'.pluralize(flat.number_of_guests)}" %></p>
                 </div>
-                <div>
-                  <p><%= flat.user.name %></p>
-                  <h2>£<%= flat.price_per_night %>/night</h2>
+                <div class="flat-price">
+                  <p>£<%= flat.price_per_night %>/night</p>
                 </div>
-                <img src="<%= cl_image_path flat.user.photo.key, gravity: :face, height: 40, width: 40, zoom: 0.7, crop: :thumb %>" class="flat-card-user avatar-bordered" />
+                <div class="flat-card-user">
+                  <img src="<%= cl_image_path flat.user.photo.key, gravity: :face, height: 40, width: 40, zoom: 0.7, crop: :thumb %>" class="avatar-bordered" />
+                  <p><%= flat.user.name %></p>
+                </div>
               </div>
             <% end %>
           </div>
