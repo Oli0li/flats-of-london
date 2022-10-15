@@ -7,3 +7,17 @@
 .mapboxgl-popup-content p {
   margin-bottom: 0;
 }
+
+.mapboxgl-popup-content a {
+  text-decoration: none;
+  color: black;
+}
+
+.mapboxgl-popup-content a:hover {
+  text-decoration: underline;
+  color: black;
+}
+
+.mapboxgl-popup-content a:focus-visible {
+  outline: none;
+}

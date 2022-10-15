@@ -1,2 +1,4 @@
-<h2><%= flat.name %></h2>
-<p><%= flat.address %></p>
+<%= link_to flat_path(flat), class: "popup-link" do %>
+  <h2><%= flat.name %></h2>
+<% end %>
+  <p><%= flat.address %></p>
