@@ -1,16 +1,26 @@
 footer {
-  line-height: 5px;
-  text-align: center;
-  margin: 15px auto;
-  background-image: url("purple_icons_background.svg");
-  background-size: cover;
-  height: 30px;
+  /* text-align: center; */
+  margin-top: auto;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 footer p {
-  display: inline-block;
+  display: block;
+  margin-top: 15px;
+}
+
+.footer-white {
   color: purple;
   background-color: #fff;
+  padding: 15px 8px;
+}
+
+.footer-purple {
+  color: #fff;
+  background-color: purple;
   padding: 15px 8px;
 }
 
