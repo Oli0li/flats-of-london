@@ -7,6 +7,5 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_many :flats, dependent: :destroy
   has_many :bookings, dependent: :destroy
-  has_many :flats, through: :bookings
   validates :name, presence: true
 end
