@@ -7,9 +7,11 @@
   <p>Capacity: <%= @flat.number_of_guests %></p>
   <p><%= @flat.description %></p>
 
-    <%= simple_form_for [@flat, @booking], data: { controller: "flatpickr" } do |f| %>
-      <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", wrapper_html: { class: "inline_field_wrapper" } %>
-      <%= f.input :end_date, as: :string, label: '&nbsp;'.html_safe, placeholder: "To", disabled: true, wrapper_html: { class: "inline_field_wrapper" } %>
+    <%= simple_form_for [@flat, @booking] do |f| %>
+     <div data-controller="flatpickr" data-unavailable="<%= @flat.unavailable_dates.to_json %>">
+      <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", input_html: {class: "datepicker", "data-flatpickr-target" => "start"} %>
+      <%= f.input :end_date, as: :string, label: '&nbsp;'.html_safe, placeholder: "To", input_html: {class: "datepicker", "data-flatpickr-target" => "end"} %>
+      </div>
       <%= f.submit "book", class: "btn btn-primary btn-lg btn-block btn-booking" %>
     <% end %>
 
