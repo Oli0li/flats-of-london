@@ -4,11 +4,12 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.flat = @flat
+    # raise
     if @booking.save
       # Will change this to dashboard later
       redirect_to root_path
     else
-      render "flats/show", status: :unprocessable_entity
+      render 'flats/show', status: :unprocessable_entity
     end
   end
 
