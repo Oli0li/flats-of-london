@@ -14,6 +14,8 @@
  *= require_self
  */
 
+ @import 'flatpickr/dist/flatpickr.css';
+
  body {
   min-height: 100vh;
   display: flex;
