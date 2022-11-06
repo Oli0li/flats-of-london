@@ -8,9 +8,9 @@
   <p><%= @flat.description %></p>
 
     <%= simple_form_for [@flat, @booking] do |f| %>
-     <div data-controller="flatpickr" data-unavailable="<%= @flat.unavailable_dates.to_json %>">
-      <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", input_html: {class: "datepicker", "data-flatpickr-target" => "start"} %>
-      <%= f.input :end_date, as: :string, label: '&nbsp;'.html_safe, placeholder: "To", input_html: {class: "datepicker", "data-flatpickr-target" => "end"} %>
+     <div data-controller="flatpickr" data-unavailable="<%= @flat.unavailable_dates.to_json %>" class="widget-content">
+      <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", input_html: {class: "datepicker", "data-flatpickr-target" => "start", id: "booking_start_date" } %>
+      <%= f.input :end_date, as: :hidden, label: '&nbsp;'.html_safe, placeholder: "To", input_html: {class: "datepicker", "data-flatpickr-target" => "end", id: "booking_end_date"} %>
       </div>
       <%= f.submit "book", class: "btn btn-primary btn-lg btn-block btn-booking" %>
     <% end %>
