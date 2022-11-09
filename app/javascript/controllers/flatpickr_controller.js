@@ -11,6 +11,7 @@ export default class extends Controller {
     flatpickr(this.startTarget, {
       disable: unavailableDates,
       minDate: "today",
+      dateFormat: "d-m-Y",
       onChange: function (selectedDates) {
         let minDate = selectedDates[0];
         minDate.setDate(minDate.getDate() + 1);
