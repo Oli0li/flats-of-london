@@ -1,0 +1,7 @@
+<h1>Dashboard</h1>
+<p>Here are your bookings:</p>
+<ul>
+  <% @bookings.each do |booking| %>
+    <li><%= booking.flat.name %>: from <%= booking.start_date %> to <%= booking.end_date %></li>
+  <% end %>
+</ul>
