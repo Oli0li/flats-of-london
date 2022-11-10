@@ -7,6 +7,9 @@ export default class extends Controller {
 
   connect() {
     const unavailableDates = JSON.parse(this.element.dataset.unavailable);
+    const lastAvailableDates = JSON.parse(this.element.dataset.lastavailable);
+    console.log(`unavailable dates : ${lastAvailableDates}`);
+    console.log(`last unavailable dates : ${lastAvailableDates[2]}`);
 
     flatpickr(this.startTarget, {
       disable: unavailableDates,
@@ -16,6 +19,20 @@ export default class extends Controller {
         let minDate = selectedDates[0];
         minDate.setDate(minDate.getDate() + 1);
         endPicker.set("minDate", minDate);
+
+        console.log(`minDate: ${minDate}`);
+        let lastAvailable = new Date(lastAvailableDates[2]);
+        console.log(minDate < lastAvailable);
+        let maxDate;
+        for (let i = 0; i < lastAvailableDates.length; i++) {
+          console.log(minDate, lastAvailableDates[i]);
+          if (minDate < new Date(lastAvailableDates[i])) {
+            maxDate = new Date(lastAvailableDates[i]);
+            break;
+          }
+        }
+        endPicker.set("maxDate", maxDate);
+        console.log(maxDate);
       },
     });
 
