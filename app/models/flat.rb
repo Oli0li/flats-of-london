@@ -16,4 +16,8 @@ class Flat < ApplicationRecord
       { from: range[0], to: range[1] }
     end
   end
+
+  def day_before_unavailable
+    self.unavailable_dates.map { |date_range| date_range[:from] }
+  end
 end
