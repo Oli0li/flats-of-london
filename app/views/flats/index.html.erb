@@ -15,7 +15,7 @@
         <div class="col-4">
           <div class="card flat-card">
             <%= link_to flat_path(flat) do %>
-              <img src="<%= cl_image_path flat.photo.key %>" />
+              <img src="<%= cl_image_path flat.photos.first.key %>" />
               <div class="flat-card-infos">
                 <div>
                   <h2><%= flat.name %></h2>
