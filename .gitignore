@@ -33,5 +33,3 @@
 
 # Environment variables
 .env*
-.env*
-.env
