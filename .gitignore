@@ -27,3 +27,11 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Node modules
+/node_modules
+
+# Environment variables
+.env*
+.env*
+.env

@@ -3,8 +3,8 @@ class Flat < ApplicationRecord
   # Source of geocoding
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-  has_one_attached :photo
-  has_many :bookings
+  has_many_attached :photos
+  has_many :bookings, dependent: :destroy
 
   validates :name, :address, :description, :price_per_night, :number_of_guests, :user_id, presence: true
   validates :description, length: { minimum: 10, maximum: 400 }
