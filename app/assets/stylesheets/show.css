@@ -8,5 +8,12 @@
 }
 
 .carousel-item {
-  transition: transform 1s ease-in-out !important; */
+  transition: transform 1s ease-in-out !important;
+}
+
+.booking-form {
+  width: 25%;
+  border: solid 1px black;
+  border-radius: 5px;
+  padding: 10px;
 }

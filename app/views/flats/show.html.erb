@@ -3,14 +3,10 @@
 <div class="container">
   <h1><%= @flat.name %></h1>
 
-  <div id="flat-carousel" class="carousel slide" data-ride="carousel" data-pause="hover" data-wrap="true">
+  <div id="flat-carousel" class="carousel slide mt-4" data-ride="carousel" data-pause="hover">
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <%= cl_image_tag @flat.photos.first.key, class: "flat-image-show d-block w-100" %>
-      </div>
-      <% @flat.photos.each_with_index do |photo, index| %>
-        <% next if index == 0 %>
-        <div class="carousel-item">
+      <% @flat.photos.each do |photo| %>
+        <div class="carousel-item <%= "active" if photo == @flat.photos.first %>">
           <%= cl_image_tag photo.key, class: "flat-image-show d-block w-100" %>
         </div>
       <% end %>
@@ -25,17 +21,25 @@
     </a>
   </div>
 
-  <p>Host: <%= @flat.user.name %></p>
-  <p>Capacity: <%= @flat.number_of_guests %></p>
-  <p><%= @flat.description %></p>
+  <div class="d-flex mt-4">
+    <div class="flat_details">
+      <h2>About this flat</h2>
+      <p>Host: <%= @flat.user.name %></p>
+      <p>Capacity: <%= @flat.number_of_guests %></p>
+      <p><%= @flat.description %></p>
+    </div>
 
-    <%= simple_form_for [@flat, @booking] do |f| %>
-     <div data-controller="flatpickr" data-unavailable="<%= @flat.unavailable_dates.to_json %>" data-lastavailable="<%= @flat.day_before_unavailable.to_json %>" class="widget-content">
-      <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", input_html: {class: "datepicker", "data-flatpickr-target" => "start", id: "booking_start_date" } %>
-      <%= f.input :end_date, as: :hidden, label: '&nbsp;'.html_safe, placeholder: "To", input_html: {class: "datepicker", "data-flatpickr-target" => "end", id: "booking_end_date"} %>
+    <div class="booking-form">
+      <p><span id="booking-form-price-per-night">£<%= @flat.price_per_night %></span> per night</p>
+      <%= simple_form_for [@flat, @booking] do |f| %>
+      <div data-controller="flatpickr" data-unavailable="<%= @flat.unavailable_dates.to_json %>" data-lastavailable="<%= @flat.day_before_unavailable.to_json %>" class="widget-content">
+        <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", input_html: {class: "datepicker", "data-flatpickr-target" => "start", id: "booking_start_date" } %>
+        <%= f.input :end_date, as: :hidden, label: '&nbsp;'.html_safe, placeholder: "To", input_html: {class: "datepicker", "data-flatpickr-target" => "end", id: "booking_end_date"} %>
       </div>
-      <%= f.submit "book", class: "btn btn-primary btn-lg btn-block btn-booking" %>
-    <% end %>
+        <%= f.submit "book", class: "btn btn-primary btn-lg btn-block btn-booking" %>
+      <% end %>
+    </div>
+  </div>
 
   <% if @flat.user == current_user %>
   <%= link_to "Delete this listing", flat_path(@flat), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this listing?" }, class: "btn btn-danger"%>
