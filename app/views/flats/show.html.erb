@@ -2,11 +2,29 @@
 
 <div class="container">
   <h1><%= @flat.name %></h1>
-  <% @flat.photos.each do |photo| %>
-    <div>
-      <%= cl_image_tag photo.key, class: "flat-image-show" %>
+
+  <div id="flat-carousel" class="carousel slide" data-ride="carousel" data-pause="hover" data-wrap="true">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= cl_image_tag @flat.photos.first.key, class: "flat-image-show d-block w-100" %>
+      </div>
+      <% @flat.photos.each_with_index do |photo, index| %>
+        <% next if index == 0 %>
+        <div class="carousel-item">
+          <%= cl_image_tag photo.key, class: "flat-image-show d-block w-100" %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+    <a class="carousel-control-prev" href="#flat-carousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#flat-carousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
   <p>Host: <%= @flat.user.name %></p>
   <p>Capacity: <%= @flat.number_of_guests %></p>
   <p><%= @flat.description %></p>
