@@ -36,6 +36,7 @@
         <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", input_html: {class: "datepicker", "data-flatpickr-target" => "start", id: "booking_start_date" } %>
         <%= f.input :end_date, as: :hidden, label: '&nbsp;'.html_safe, placeholder: "To", input_html: {class: "datepicker", "data-flatpickr-target" => "end", id: "booking_end_date"} %>
       </div>
+        <%= f.input :number_of_guests, collection: (0..@flat.number_of_guests) %>
         <%= f.submit "book", class: "btn btn-primary btn-lg btn-block btn-booking" %>
       <% end %>
     </div>
