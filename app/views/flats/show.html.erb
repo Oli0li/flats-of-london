@@ -32,7 +32,7 @@
     <div class="booking-form">
       <p><span id="booking-form-price-per-night">£<%= @flat.price_per_night %></span> per night</p>
       <%= simple_form_for [@flat, @booking] do |f| %>
-      <div data-controller="flatpickr" data-unavailable="<%= @flat.unavailable_dates.to_json %>" data-lastavailable="<%= @flat.day_before_unavailable.to_json %>" class="widget-content">
+      <div data-controller="flatpickr" data-unavailable="<%= @flat.unavailable_dates.to_json %>" data-first-unavailable-dates="<%= @flat.booking_start_dates.to_json %>" class="widget-content">
         <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", input_html: {class: "datepicker", "data-flatpickr-target" => "start", id: "booking_start_date" } %>
         <%= f.input :end_date, as: :hidden, label: '&nbsp;'.html_safe, placeholder: "To", input_html: {class: "datepicker", "data-flatpickr-target" => "end", id: "booking_end_date"} %>
       </div>

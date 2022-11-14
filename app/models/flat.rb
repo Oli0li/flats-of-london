@@ -17,7 +17,7 @@ class Flat < ApplicationRecord
     end
   end
 
-  def day_before_unavailable
-    self.unavailable_dates.map { |date_range| date_range[:from] }
+  def booking_start_dates
+    self.unavailable_dates.map { |date_range| date_range[:from] }.sort
   end
 end

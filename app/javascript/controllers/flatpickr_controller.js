@@ -7,35 +7,35 @@ export default class extends Controller {
 
   connect() {
     const unavailableDates = JSON.parse(this.element.dataset.unavailable);
-    const lastAvailableDates = JSON.parse(this.element.dataset.lastavailable);
-    console.log(`unavailable dates : ${lastAvailableDates}`);
-    console.log(`last unavailable dates : ${lastAvailableDates[2]}`);
+    const bookingsStartDates = JSON.parse(
+      this.element.dataset.firstUnavailableDates
+    );
 
     flatpickr(this.startTarget, {
       disable: unavailableDates,
       minDate: "today",
       dateFormat: "d-m-Y",
       onChange: function (selectedDates) {
-        let minDate = selectedDates[0];
-        minDate.setDate(minDate.getDate() + 1);
-        endPicker.set("minDate", minDate);
+        // set minimum date for the end target
+        let endMinDate = selectedDates[0];
+        endMinDate.setDate(endMinDate.getDate() + 1);
+        endPicker.set("minDate", endMinDate);
 
-        console.log(`minDate: ${minDate}`);
-        let lastAvailable = new Date(lastAvailableDates[2]);
-        console.log(minDate < lastAvailable);
+        // set maximum date for the end target
+        // if the user selected a date just before a booking, they cannot select an end date as a booking must include at least 1 night
         let maxDate;
-        for (let i = 0; i < lastAvailableDates.length; i++) {
-          console.log(minDate, lastAvailableDates[i]);
-          if (minDate < new Date(lastAvailableDates[i])) {
-            maxDate = new Date(lastAvailableDates[i]);
+        for (let i = 0; i < bookingsStartDates.length; i++) {
+          const firstUnavailableDate = new Date(bookingsStartDates[i]);
+          if (endMinDate <= firstUnavailableDate) {
+            maxDate = firstUnavailableDate;
             break;
           }
         }
         endPicker.set("maxDate", maxDate);
-        console.log(maxDate);
       },
     });
 
+    // Setting the minimum date for end date to tomorrow in case some users start with the end date
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
 
