@@ -17,3 +17,8 @@
   border-radius: 5px;
   padding: 10px;
 }
+
+#booking-form-price-per-night {
+  font-weight: 500;
+  font-size: 20px;
+}

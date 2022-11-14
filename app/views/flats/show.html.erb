@@ -30,15 +30,16 @@
     </div>
 
     <div class="booking-form">
-      <p><span id="booking-form-price-per-night">£<%= @flat.price_per_night %></span> per night</p>
-      <%= simple_form_for [@flat, @booking] do |f| %>
       <div data-controller="flatpickr" data-unavailable="<%= @flat.unavailable_dates.to_json %>" data-first-unavailable-dates="<%= @flat.booking_start_dates.to_json %>" class="widget-content">
-        <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", input_html: {class: "datepicker", "data-flatpickr-target" => "start", id: "booking_start_date" } %>
-        <%= f.input :end_date, as: :hidden, label: '&nbsp;'.html_safe, placeholder: "To", input_html: {class: "datepicker", "data-flatpickr-target" => "end", id: "booking_end_date"} %>
+        <p><span id="booking-form-price-per-night" data-flatpickr-target="price">£<%= @flat.price_per_night %></span> per night</p>
+        <%= simple_form_for [@flat, @booking] do |f| %>
+          <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", input_html: {class: "datepicker", "data-flatpickr-target" => "start", id: "booking_start_date" } %>
+          <%= f.input :end_date, as: :hidden, label: '&nbsp;'.html_safe, placeholder: "To", disabled: true, input_html: {class: "datepicker", "data-flatpickr-target" => "end", id: "booking_end_date"} %>
+          <%= f.input :number_of_guests, collection: (0..@flat.capacity) %>
+          <%= f.submit "book", class: "btn btn-primary btn-lg btn-block btn-booking" %>
+          <p data-flatpickr-target="total"></p>
+        <% end %>
       </div>
-        <%= f.input :number_of_guests, collection: (0..@flat.capacity) %>
-        <%= f.submit "book", class: "btn btn-primary btn-lg btn-block btn-booking" %>
-      <% end %>
     </div>
   </div>
 
