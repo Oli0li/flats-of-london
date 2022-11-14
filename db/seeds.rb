@@ -60,7 +60,7 @@ Flat.create!(
   address: '10 Clifton Gardens, London W9 1DT',
   description: 'A lovely summer feel for this spacious garden flat. Two double bedrooms, open plan living area, large kitchen and a beautiful conservatory',
   price_per_night: 90,
-  number_of_guests: 4,
+  capacity: 4,
   user: robert
 )
 puts "Flat 1 created"
@@ -70,7 +70,7 @@ Flat.create!(
   address: "200 Westminster Bridge Rd, London SE1 7UT",
   description: 'This modern penthouse has everything you could ask for, including a view on the Houses of Parliament and London Eye.',
   price_per_night: 100,
-  number_of_guests: 2,
+  capacity: 2,
   user: linda
 )
 puts "Flat 2 created"
@@ -80,7 +80,7 @@ Flat.create!(
   address: '36 Bloomsbury Way, London WC1A 2SD',
   description: 'A spacious flat in a very central location, close to the British Museum, shops and restaurants.',
   price_per_night: 150,
-  number_of_guests: 3,
+  capacity: 3,
   user: mel
 )
 puts "Flat 3 created"
@@ -90,7 +90,7 @@ Flat.create!(
   address: '40 Fashion St, London E1 6PX',
   description: 'Modern studio with all necessary amenities, close to Spitafields Market and the vibrant district of Shoreditch.',
   price_per_night: 100,
-  number_of_guests: 3,
+  capacity: 3,
   user: linda
 )
 puts "Flat 4 created"
@@ -100,7 +100,7 @@ Flat.create!(
   address: '101 Bayham St, London NW1 0AG',
   description: 'A quiet flat close to the bustling market of Camden. En-suite bathroom and large kitchen with all modern amenities.',
   price_per_night: 75,
-  number_of_guests: 2,
+  capacity: 2,
   user: robert
 )
 puts "Flat 5 created"
@@ -110,7 +110,7 @@ Flat.create!(
   address: "100 Queen's Gate, London SW7 5AG",
   description: '17th century house in South Kensington, near the museums. Very chic district with convenient access to central London.',
   price_per_night: 200,
-  number_of_guests: 2,
+  capacity: 2,
   user: josh
 )
 puts "Flat 6 created"
