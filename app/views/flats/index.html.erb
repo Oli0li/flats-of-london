@@ -19,7 +19,7 @@
               <div class="flat-card-infos">
                 <div>
                   <h2><%= flat.name %></h2>
-                  <p>Up to <%= "#{flat.number_of_guests} #{'guest'.pluralize(flat.number_of_guests)}" %></p>
+                  <p>Up to <%= "#{flat.capacity} #{'guest'.pluralize(flat.capacity)}" %></p>
                 </div>
                 <div class="flat-price">
                   <p>£<%= flat.price_per_night %>/night</p>

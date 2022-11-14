@@ -25,7 +25,7 @@
     <div class="flat_details">
       <h2>About this flat</h2>
       <p>Host: <%= @flat.user.name %></p>
-      <p>Capacity: <%= @flat.number_of_guests %></p>
+      <p>Capacity: <%= @flat.capacity %></p>
       <p><%= @flat.description %></p>
     </div>
 
@@ -36,7 +36,7 @@
         <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", input_html: {class: "datepicker", "data-flatpickr-target" => "start", id: "booking_start_date" } %>
         <%= f.input :end_date, as: :hidden, label: '&nbsp;'.html_safe, placeholder: "To", input_html: {class: "datepicker", "data-flatpickr-target" => "end", id: "booking_end_date"} %>
       </div>
-        <%= f.input :number_of_guests, collection: (0..@flat.number_of_guests) %>
+        <%= f.input :number_of_guests, collection: (0..@flat.capacity) %>
         <%= f.submit "book", class: "btn btn-primary btn-lg btn-block btn-booking" %>
       <% end %>
     </div>
@@ -51,7 +51,7 @@
       <%= f.input :address %>
       <%= f.input :description %>
       <%= f.input :price_per_night %>
-      <%= f.input :number_of_guests %>
+      <%= f.input :capacity %>
       <%= f.submit %>
     <% end %>
   <% end %>
