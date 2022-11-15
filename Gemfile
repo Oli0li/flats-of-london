@@ -57,6 +57,9 @@ gem "bootsnap", require: false
 # For geocoding
 gem "geocoder"
 
+# For prices
+gem 'money-rails'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
