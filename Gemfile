@@ -60,6 +60,9 @@ gem "geocoder"
 # For prices
 gem 'money-rails'
 
+# For processing payments
+gem 'stripe'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
