@@ -9,6 +9,13 @@ class Booking < ApplicationRecord
   validate :end_date_after_start_date
   validates_with OverlapFreeValidator, attributes: [:start_date, :end_date]
 
+  def get_amount
+    number_of_nights = end_date - start_date
+    puts number_of_nights
+    puts flat.price_per_night
+    number_of_nights * flat.price_per_night
+  end
+
   private
 
   def end_date_after_start_date
@@ -18,4 +25,5 @@ class Booking < ApplicationRecord
       errors.add(:end_date, "must be after the start date")
     end
   end
+
 end
