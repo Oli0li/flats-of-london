@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :flat
+  monetize :amount_cents
 
   validates :start_date, :end_date, presence: true, availability: true
   validates :number_of_guests, presence: true
