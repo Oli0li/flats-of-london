@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'pages#dashboard'
 
   resources :flats do
-    resources :bookings, only: [:create]
+    resources :bookings, only: :create do
+      resources :payments, only: :new
+    end
   end
 end
