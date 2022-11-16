@@ -62,6 +62,7 @@ gem 'money-rails'
 
 # For processing payments
 gem 'stripe'
+gem 'stripe_event'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
