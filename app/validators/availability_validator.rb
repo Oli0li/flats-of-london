@@ -1,7 +1,7 @@
 class AvailabilityValidator < ActiveModel::EachValidator
 
   def validate_each(record, attribute, value)
-    bookings = Booking.where(["flat_id =?", record.flat_id]).reject { |b| b.id == record.id}
+    bookings = Booking.where(["flat_id =?", record.flat_id]).where(["status =?", "confirmed"]).reject { |b| b.id == record.id}
     date_ranges = bookings.map { |b| b.start_date..b.end_date }
 
     date_ranges.each do |range|

@@ -3,20 +3,11 @@
     <div class="col-md-3"><%= cl_image_tag @flat.photos.first.key, width: '100%' %></div>
     <div class="col">
       <h1>Checkout summary</h1>
-      <h3><strong><%= @booking.flat.name %></strong></h3>
-      <p><strong>Total: <%= humanized_money_with_symbol @booking.amount %></strong></p>
-      <button id="pay" class="btn btn-primary">Pay</button>
-
-      <script src="https://js.stripe.com/v3/"></script>
-      <script>
-        const paymentButton = document.getElementById('pay');
-        paymentButton.addEventListener('click', () => {
-          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-          stripe.redirectToCheckout({
-            sessionId: '<%= @booking.checkout_session_id %>'
-          });
-        });
-      </script> -->
+      <div class="checkout" data-controller="checkout" data-checkout-key-value="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>" data-checkout-session-id-value="<%= @booking.checkout_session_id %>">
+        <h3><strong><%= @booking.flat.name %></strong></h3>
+        <p><strong>Total: <%= humanized_money_with_symbol @booking.amount %></strong></p>
+        <button id="pay" class="btn btn-primary" data-checkout-target="payButton">Pay</button>
       </div>
+    </div>
   </div>
 </div>
