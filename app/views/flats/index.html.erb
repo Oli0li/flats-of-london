@@ -22,7 +22,7 @@
                   <p>Up to <%= "#{flat.capacity} #{'guest'.pluralize(flat.capacity)}" %></p>
                 </div>
                 <div class="flat-price">
-                  <p>£<%= flat.price_per_night %>/night</p>
+                  <p><%= humanized_money_with_symbol(flat.price_per_night) %>/night</p>
                 </div>
                 <div class="flat-card-user">
                   <img src="<%= cl_image_path flat.user.photo.key, gravity: :face, height: 40, width: 40, zoom: 0.7, crop: :thumb %>" class="avatar-bordered" />

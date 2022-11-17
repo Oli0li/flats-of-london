@@ -47,6 +47,11 @@ export default class extends Controller {
       },
     });
 
+    const calculateNumberOfNights = () => {
+      const millisecondsPerDay = 1000 * 60 * 60 * 24;
+      return (endDate - startDate) / millisecondsPerDay;
+    };
+
     const displayTotal = () => {
       const millisecondsPerDay = 1000 * 60 * 60 * 24;
       const numberOfNights = (endDate - startDate) / millisecondsPerDay;
