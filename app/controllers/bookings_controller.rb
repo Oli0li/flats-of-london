@@ -29,7 +29,7 @@ class BookingsController < ApplicationController
     @booking.flat = @flat
     @booking.status = "pending"
     @booking.amount = @booking.get_amount
-    if @booking.valid?
+    if @booking.save
       session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [{
@@ -49,8 +49,7 @@ class BookingsController < ApplicationController
       cancel_url: flats_url
     )
 
-      @booking.checkout_session_id = session.id
-      @booking.save
+      @booking.update(checkout_session_id: session.id)
       redirect_to new_flat_booking_payment_path(@flat, @booking)
     else
       render 'flats/show', status: :unprocessable_entity

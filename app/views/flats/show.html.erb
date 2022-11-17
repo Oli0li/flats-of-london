@@ -35,7 +35,7 @@
         <%= simple_form_for [@flat, @booking] do |f| %>
           <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", input_html: {class: "datepicker", "data-flatpickr-target" => "start", id: "booking_start_date" } %>
           <%= f.input :end_date, as: :hidden, label: '&nbsp;'.html_safe, placeholder: "To", disabled: true, input_html: {class: "datepicker", "data-flatpickr-target" => "end", id: "booking_end_date"} %>
-          <%= f.input :number_of_guests, collection: (0..@flat.capacity) %>
+          <%= f.input :number_of_guests, collection: (1..@flat.capacity) %>
           <%= f.submit "book", class: "btn btn-primary btn-lg btn-block btn-booking", data: { turbo: false } %>
           <p data-flatpickr-target="total"></p>
         <% end %>

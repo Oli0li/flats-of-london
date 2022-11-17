@@ -7,13 +7,10 @@ class Booking < ApplicationRecord
   validates :number_of_guests, presence: true
   validates :number_of_guests, numericality: { only_integer: true, greater_than: 0 }
   validate :end_date_after_start_date
-  validates_with OverlapFreeValidator, attributes: [:start_date, :end_date]
 
   def get_amount
     return 0 if end_date.nil? || start_date.nil?
     number_of_nights = end_date - start_date
-    puts number_of_nights
-    puts flat.price_per_night
     number_of_nights * flat.price_per_night
   end
 
