@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
   def dashboard
-    @bookings = current_user.bookings
+    @future_bookings = Booking.display_bookings("future", current_user)
+    @past_bookings = Booking.display_bookings("past", current_user)
+    @current_bookings = Booking.display_bookings("present", current_user)
   end
 end

@@ -2,8 +2,24 @@
 
 <h1>Dashboard</h1>
 <p>Here are your bookings:</p>
+
+<h2>Current bookings</h2>
 <ul>
-  <% @bookings.each do |booking| %>
+  <% @current_bookings.each do |booking| %>
+    <li><%= booking.flat.name %>: from <%= booking.start_date %> to <%= booking.end_date %> for <%= booking.number_of_guests == 1 ? "1 person" : "#{booking.number_of_guests} people" %></li>
+  <% end %>
+</ul>
+
+<h2>Upcoming bookings</h2>
+<ul>
+  <% @future_bookings.each do |booking| %>
+    <li><%= booking.flat.name %>: from <%= booking.start_date %> to <%= booking.end_date %> for <%= booking.number_of_guests == 1 ? "1 person" : "#{booking.number_of_guests} people" %></li>
+  <% end %>
+</ul>
+
+<h2>Past bookings</h2>
+<ul>
+  <% @past_bookings.each do |booking| %>
     <li><%= booking.flat.name %>: from <%= booking.start_date %> to <%= booking.end_date %> for <%= booking.number_of_guests == 1 ? "1 person" : "#{booking.number_of_guests} people" %></li>
   <% end %>
 </ul>

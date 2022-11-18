@@ -1,5 +1,4 @@
 require_relative "../../app/services/stripe_checkout_session_service.rb"
-require "stripe"
 
 Rails.configuration.stripe = {
   publishable_key: ENV['STRIPE_PUBLISHABLE_KEY'],

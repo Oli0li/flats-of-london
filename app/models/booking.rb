@@ -14,6 +14,14 @@ class Booking < ApplicationRecord
     number_of_nights * flat.price_per_night
   end
 
+  def self.display_bookings(time, logged_user)
+    case time
+    when "future" then Booking.get_confirmed_bookings(logged_user).select { |b| DateTime.now < b.start_date }
+    when "past" then Booking.get_confirmed_bookings(logged_user).select { |b| b.start_date < DateTime.now }
+    when "present" then Booking.get_confirmed_bookings(logged_user).select { |b| (b.start_date..b.end_date).include?(DateTime.now) }
+    end
+  end
+
   private
 
   def end_date_after_start_date
@@ -24,4 +32,8 @@ class Booking < ApplicationRecord
     end
   end
 
+  def self.get_confirmed_bookings(logged_user)
+    user = User.find(logged_user.id)
+    user.bookings.where(status: "confirmed")
+  end
 end
