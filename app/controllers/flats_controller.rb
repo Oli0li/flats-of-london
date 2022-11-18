@@ -36,7 +36,12 @@ class FlatsController < ApplicationController
   end
 
   def update
-    @flat.update(flat_params)
+    if @flat.update(flat_params)
+      redirect_to flat_path(@flat)
+    else
+      @booking = Booking.new
+      render :show, status: :unprocessable_entity
+    end
   end
 
   def destroy
