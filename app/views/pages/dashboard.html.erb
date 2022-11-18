@@ -1,27 +1,59 @@
 <%= render "shared/navbar" %>
 
-<h1>Dashboard</h1>
-<p>Here are your bookings:</p>
+<div class="container">
+  <h1>Dashboard</h1>
+  <p>Here are your bookings:</p>
 
-<h2>Current bookings</h2>
-<ul>
-  <% @current_bookings.each do |booking| %>
-    <li><%= booking.flat.name %>: from <%= booking.start_date %> to <%= booking.end_date %> for <%= booking.number_of_guests == 1 ? "1 person" : "#{booking.number_of_guests} people" %></li>
+  <% unless @current_bookings.empty? %>
+    <h2>You're staying here now!</h2>
+    <ul>
+      <% @current_bookings.each do |booking| %>
+        <li><%= booking.flat.name %>: from <%= booking.start_date %> to <%= booking.end_date %> for <%= booking.number_of_guests == 1 ? "1 person" : "#{booking.number_of_guests} people" %></li>
+      <% end %>
+    </ul>
   <% end %>
-</ul>
 
-<h2>Upcoming bookings</h2>
-<ul>
-  <% @future_bookings.each do |booking| %>
-    <li><%= booking.flat.name %>: from <%= booking.start_date %> to <%= booking.end_date %> for <%= booking.number_of_guests == 1 ? "1 person" : "#{booking.number_of_guests} people" %></li>
+  <h2>Upcoming bookings</h2>
+  <% if @future_bookings.empty? %>
+    <p>You haven't booked anything yet!</p>
+    <p>Discover our wonderful selection of flats here:</p>
+    <%= link_to "See all flats", flats_path, class: "btn btn-primary" %>
+  <% else %>
+    <div class="row gy-4">
+      <% @future_bookings.each do |booking| %>
+        <div class="col-4">
+          <h3>from <%= booking.start_date %> to <%= booking.end_date %></h3>
+          <div class="card flat-card">
+            <%= link_to flat_path(booking.flat) do %>
+              <img src="<%= cl_image_path booking.flat.photos.first.key %>" />
+              <div class="flat-card-infos">
+                <div>
+                  <h2><%= booking.flat.name %></h2>
+                  <p><%= "#{booking.number_of_guests} #{'guest'.pluralize(booking.number_of_guests)}" %></p>
+                </div>
+                <div class="flat-price">
+                  <p>Total paid: <%= humanized_money_with_symbol(booking.amount) %></p>
+                </div>
+                <div class="flat-card-user">
+                  <img src="<%= cl_image_path booking.flat.user.photo.key, gravity: :face, height: 40, width: 40, zoom: 0.7, crop: :thumb %>" class="avatar-bordered" />
+                  <p><%= booking.flat.user.name %></p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   <% end %>
-</ul>
 
-<h2>Past bookings</h2>
-<ul>
-  <% @past_bookings.each do |booking| %>
-    <li><%= booking.flat.name %>: from <%= booking.start_date %> to <%= booking.end_date %> for <%= booking.number_of_guests == 1 ? "1 person" : "#{booking.number_of_guests} people" %></li>
+  <% unless @past_bookings.empty? %>
+    <h2>Past bookings</h2>
+    <ul>
+      <% @past_bookings.each do |booking| %>
+        <li><%= booking.flat.name %>: from <%= booking.start_date %> to <%= booking.end_date %> for <%= booking.number_of_guests == 1 ? "1 person" : "#{booking.number_of_guests} people" %></li>
+      <% end %>
+    </ul>
   <% end %>
-</ul>
+</div>
 
-<%= render "shared/footer" %>
+<%= render "shared/footer", content_for(:color) { 'footer-purple' } %>
