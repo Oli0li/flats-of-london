@@ -3,6 +3,7 @@ class Flat < ApplicationRecord
   # Source of geocoding
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  monetize :price_per_night_cents
   has_many_attached :photos
   has_many :bookings, dependent: :destroy
 
@@ -12,12 +13,13 @@ class Flat < ApplicationRecord
   validates :price_per_night, numericality: { greater_than_or_equal_to: 0 }
 
   def unavailable_dates
-    bookings.pluck(:start_date, :end_date).map do |range|
+    confirmed_bookings = bookings.select { |b| b.status == 'confirmed' }
+    confirmed_bookings.pluck(:start_date, :end_date).map do |range|
       { from: range[0], to: range[1] }
     end
   end
 
   def booking_start_dates
-    self.unavailable_dates.map { |date_range| date_range[:from] }.sort
+    unavailable_dates.map { |date_range| date_range[:from] }.sort
   end
 end

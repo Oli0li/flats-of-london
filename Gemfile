@@ -57,6 +57,13 @@ gem "bootsnap", require: false
 # For geocoding
 gem "geocoder"
 
+# For prices
+gem 'money-rails'
+
+# For processing payments
+gem 'stripe'
+gem 'stripe_event'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
