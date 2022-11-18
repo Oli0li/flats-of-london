@@ -1,6 +1,6 @@
 <%= render "shared/navbar" %>
 
-<div class="container">
+<div class="container white-container px-5 py-4">
   <h1>Dashboard</h1>
 
   <% unless @current_bookings.empty? %>
@@ -25,10 +25,8 @@
             <h4><%= booking.start_date.strftime("%-d %B %Y") %> - <%= booking.end_date.strftime("%-d %B %Y") %></h3>
           </div>
           <div class="col-6">
-            <div class="card flat-card">
-              <%= link_to flat_path(booking.flat) do %>
-                <img src="<%= cl_image_path booking.flat.photos.first.key %>" />
-              <% end %>
+            <div class="upcoming-image">
+              <img src="<%= cl_image_path booking.flat.photos.first.key %>" />
             </div>
           </div>
           <div class=col-6>
@@ -36,6 +34,11 @@
             <p><%= booking.flat.description %></p>
             <p>Booked for <%= "#{booking.number_of_guests} #{'guest'.pluralize(booking.number_of_guests)}" %></p>
             <p>Total paid: <%= humanized_money_with_symbol(booking.amount) %></p>
+            <div class="action-buttons">
+              <button class="btn btn-primary">Contact the host</button>
+              <%= link_to "See flat details", flat_path(booking.flat), class: "btn btn-primary" %>
+              <button class="btn btn-primary">Edit this booking</button>
+            </div>
           </div>
         <% end %>
       </div>

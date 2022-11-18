@@ -24,3 +24,10 @@
 .add-property-container h4 {
   margin-top: 0;
 }
+
+.white-container {
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 24px 0;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.2);
+}

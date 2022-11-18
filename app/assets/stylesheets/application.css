@@ -14,10 +14,11 @@
  *= require_self
  */
 
- @import 'flatpickr/dist/flatpickr.css';
+@import "flatpickr/dist/flatpickr.css";
 
- body {
+body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: rgb(246, 246, 246) !important;
 }
