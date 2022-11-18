@@ -1,13 +1,26 @@
-<div class="container">
+<%= render "shared/navbar" %>
+
+<div class="container white-container px-5 py-4">
   <div class="row py-4">
     <div class="col-md-3"><%= cl_image_tag @flat.photos.first.key, width: '100%' %></div>
     <div class="col">
       <h1>Checkout summary</h1>
       <div class="checkout" data-controller="checkout" data-checkout-key-value="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>" data-checkout-session-id-value="<%= @booking.checkout_session_id %>">
         <h3><strong><%= @booking.flat.name %></strong></h3>
+        <p><%= @booking.flat.description %></p>
+        <p>
+          You are about to book this flat for <strong><%= (@booking.end_date - @booking.start_date).to_i %> night</strong>
+          from <strong><%= @booking.start_date.strftime("%-d %B %Y") %> to <%= @booking.end_date.strftime("%-d %B %Y") %></strong>
+          for <strong><%= @booking.number_of_guests %> people.</strong>
+        </p>
+
         <p><strong>Total: <%= humanized_money_with_symbol @booking.amount %></strong></p>
+        <h5>Please check all details are correct before clicking on "Pay".</h5>
         <button id="pay" class="btn btn-primary" data-checkout-target="payButton">Pay</button>
+        <%= link_to "Go back", :back, class: "btn btn-primary" %>
       </div>
     </div>
   </div>
 </div>
+
+<%= render "shared/footer", content_for(:color) { 'footer-purple' } %>
