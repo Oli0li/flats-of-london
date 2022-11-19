@@ -35,9 +35,9 @@
             <p>Booked for <%= "#{booking.number_of_guests} #{'guest'.pluralize(booking.number_of_guests)}" %></p>
             <p>Total paid: <%= humanized_money_with_symbol(booking.amount) %></p>
             <div class="action-buttons">
-              <button class="button gradient-btn">Contact the host</button>
-              <%= link_to "See flat details", flat_path(booking.flat), class: "button gradient-btn" %>
-              <button class="button gradient-btn">Edit this booking</button>
+              <button class="button blue-btn">Contact the host</button>
+              <%= link_to "See flat details", flat_path(booking.flat), class: "button blue-btn" %>
+              <button class="button blue-btn">Edit this booking</button>
             </div>
           </div>
         <% end %>

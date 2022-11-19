@@ -1,5 +1,4 @@
 footer {
-  /* text-align: center; */
   margin-top: auto;
   height: 40px;
   display: flex;
@@ -20,7 +19,11 @@ footer p {
 
 .footer-purple {
   color: #fff;
-  background-color: purple;
+  background: linear-gradient(
+    90deg,
+    rgba(91, 3, 198, 0.9) 0%,
+    rgba(66, 29, 253, 0.9) 78%
+  );
   padding: 15px 8px;
 }
 
