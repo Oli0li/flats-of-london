@@ -31,7 +31,11 @@
 .gradient-btn:hover {
   background: linear-gradient(
     90deg,
-    rgba(131, 58, 180, 1) 0%,
-    rgba(66, 29, 253, 0.8) 78%
+    rgba(91, 3, 198, 0.9) 0%,
+    rgba(66, 29, 253, 0.9) 78%
   );
+}
+
+.btn-booking {
+  width: 100%;
 }
