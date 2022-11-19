@@ -36,7 +36,7 @@
           <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", input_html: {class: "datepicker", "data-flatpickr-target" => "start", id: "booking_start_date" } %>
           <%= f.input :end_date, as: :hidden, label: '&nbsp;'.html_safe, placeholder: "To", disabled: true, input_html: {class: "datepicker", "data-flatpickr-target" => "end", id: "booking_end_date"} %>
           <%= f.input :number_of_guests, collection: (1..@flat.capacity) %>
-          <%= f.submit "book", class: "btn btn-primary btn-lg btn-block btn-booking", data: { turbo: false } %>
+          <%= f.submit "Book now", class: "button gradient-btn btn-booking", data: { turbo: false } %>
           <p data-flatpickr-target="total"></p>
         <% end %>
       </div>
@@ -58,7 +58,7 @@
     <% end %>
   <% end %>
 
-  <%= link_to "Back to all flats", flats_path, class: "btn btn-primary mt-3" %>
+  <%= link_to "Back to all flats", flats_path, class: "button blue-btn mt-3" %>
 </div>
 
 <%= render "shared/footer", content_for(:color) { 'footer-purple' } %>
