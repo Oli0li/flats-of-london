@@ -29,6 +29,7 @@
 }
 
 .gradient-btn:hover {
+  color: rgb(255, 255, 255);
   background: linear-gradient(
     90deg,
     rgba(91, 3, 198, 0.9) 0%,
