@@ -14,11 +14,23 @@ class Booking < ApplicationRecord
     number_of_nights * flat.price_per_night
   end
 
+  def formatted_date(booking_attribute)
+    send(booking_attribute).strftime("%-d %B %Y")
+  end
+
+  def future?
+    Date.current < start_date
+  end
+
+  def past?
+    end_date < Date.current
+  end
+
   def self.display_bookings(time, logged_user)
     case time
-    when "future" then get_confirmed_bookings(logged_user).select { |b| DateTime.now < b.start_date }
-    when "past" then get_confirmed_bookings(logged_user).select { |b| b.end_date < DateTime.now }
-    when "present" then get_confirmed_bookings(logged_user).select { |b| (b.start_date..b.end_date).include?(DateTime.now) }
+    when "future" then get_confirmed_bookings(logged_user).select { |b| Date.current < b.start_date }
+    when "past" then get_confirmed_bookings(logged_user).select { |b| b.end_date < Date.current }
+    when "present" then get_confirmed_bookings(logged_user).select { |b| (b.start_date..b.end_date).include?(Date.current) }
     end
   end
 

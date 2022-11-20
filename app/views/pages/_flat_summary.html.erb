@@ -1,0 +1,17 @@
+<div class="col-6">
+  <div class="upcoming-image">
+    <img src="<%= cl_image_path booking.flat.photos.first.key %>" />
+  </div>
+</div>
+<div class=col-6>
+  <h5><%= booking.flat.name %></h5>
+  <p><%= booking.flat.description %></p>
+  <p>Booked for <%= "#{booking.number_of_guests} #{'guest'.pluralize(booking.number_of_guests)}" %></p>
+  <p>Total paid: <%= humanized_money_with_symbol(booking.amount) %></p>
+  <div class="action-buttons">
+    <button class="button blue-btn">Contact the host</button>
+    <%= link_to "See flat details", flat_path(booking.flat), class: "button blue-btn" %>
+    <button class="button blue-btn <%= booking.future? ? '' : 'd-none' %>">Edit this booking</button>
+    <%= link_to "Leave a review", flat_path(booking.flat), class: "button blue-btn" if booking.past? %>
+  </div>
+</div>
