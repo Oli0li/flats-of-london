@@ -5,38 +5,29 @@
 
   <% unless @current_bookings.empty? %>
     <h2>You're staying here now!</h2>
-    <div class="row gy-4">
-      <% @current_bookings.each do |booking| %>
-        <%= render "flat_summary", booking: booking %>
-      <% end %>
-    </div>
+    <% @current_bookings.each do |booking| %>
+      <%= render "flat_summary", booking: booking %>
+    <% end %>
   <% end %>
 
-  <div class="upcoming mb-5">
+  <div class="upcoming mt-4 mb-5">
     <h2>Upcoming bookings</h2>
     <% if @future_bookings.empty? %>
       <p>You haven't booked anything yet!</p>
       <p>Discover our wonderful selection of flats here:</p>
       <%= link_to "See all flats", flats_path, class: "button gradient-btn" %>
     <% else %>
-      <div class="row gy-4">
-        <% @future_bookings.each do |booking| %>
-        <div class="col-12">
-          <h4>From <%= "#{booking.formatted_date(:start_date)} to #{booking.formatted_date(:end_date)}" %></h4>
-        </div>
-          <%= render "flat_summary", booking: booking %>
-        <% end %>
-      </div>
+      <% @future_bookings.each do |booking| %>
+        <%= render "flat_summary", booking: booking %>
+      <% end %>
     <% end %>
   </div>
 
   <% unless @past_bookings.empty? %>
     <h2>Past bookings</h2>
-    <div class="row gy-4">
-      <% @past_bookings.each do |booking| %>
-        <%= render "flat_summary", booking: booking %>
-      <% end %>
-    </div>
+    <% @past_bookings.each do |booking| %>
+      <%= render "flat_summary", booking: booking %>
+    <% end %>
   <% end %>
 </div>
 

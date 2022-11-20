@@ -28,8 +28,8 @@ class Booking < ApplicationRecord
 
   def self.display_bookings(time, logged_user)
     case time
-    when "future" then get_confirmed_bookings(logged_user).select { |b| Date.current < b.start_date }
-    when "past" then get_confirmed_bookings(logged_user).select { |b| b.end_date < Date.current }
+    when "future" then get_confirmed_bookings(logged_user).select(&:future?)
+    when "past" then get_confirmed_bookings(logged_user).select(&:past?)
     when "present" then get_confirmed_bookings(logged_user).select { |b| (b.start_date..b.end_date).include?(Date.current) }
     end
   end
