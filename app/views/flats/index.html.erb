@@ -8,7 +8,9 @@
           data-controller="map"
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
           data-map-markers-value="<%= @markers.to_json %>"
-          class="map-container"></div>
+          data-map-page-value="flats-index"
+          class="map-container">
+    </div>
 
     <div class="row gy-4">
       <% @flats.each do |flat| %>
