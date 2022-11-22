@@ -1,17 +1,27 @@
 <%= render "shared/navbar" %>
 
-<div class="container white-container px-5 py-4">
+<div class="container white-container px-5 py-4" data-controller="dashboard">
   <h1>Dashboard</h1>
 
-  <% unless @current_bookings.empty? %>
-    <h2>You're staying here now!</h2>
-    <% @current_bookings.each do |booking| %>
-      <%= render "flat_summary", booking: booking %>
+  <div class="d-flex">
+    <% unless @current_bookings.empty? %>
+      <button class="current-bookings" data-dashboard-target="booking">Current stay</button>
     <% end %>
+    <button class="future-bookings active" data-dashboard-target="booking">Upcoming bookings</button>
+    <% unless @past_bookings.empty? %>
+      <button class="past-bookings" data-dashboard-target="booking">Past bookings</button>
+    <% end %>
+  </div>
+
+  <% unless @current_bookings.empty? %>
+      <div class="current-bookings d-none booking-details" data-dashboard-target="details">
+        <% @current_bookings.each do |booking| %>
+          <%= render "flat_summary", booking: booking %>
+        <% end %>
+      </div>
   <% end %>
 
-  <div class="upcoming mt-4 mb-5">
-    <h2>Upcoming bookings</h2>
+  <div data-dashboard-target="details" class="future-bookings booking-details d-block">
     <% if @future_bookings.empty? %>
       <p>You haven't booked anything yet!</p>
       <p>Discover our wonderful selection of flats here:</p>
@@ -24,11 +34,13 @@
   </div>
 
   <% unless @past_bookings.empty? %>
-    <h2>Past bookings</h2>
-    <% @past_bookings.each do |booking| %>
-      <%= render "flat_summary", booking: booking %>
-    <% end %>
+    <div data-dashboard-target="details" class="past-bookings d-none">
+      <% @past_bookings.each do |booking| %>
+        <%= render "flat_summary", booking: booking %>
+      <% end %>
+    </div>
   <% end %>
 </div>
+
 
 <%= render "shared/footer", content_for(:color) { 'footer-purple' } %>
