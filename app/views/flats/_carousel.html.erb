@@ -1,5 +1,5 @@
-<div id="flat-carousel" class="carousel slide" data-ride="carousel" data-pause="hover">
-  <div class="carousel-inner">
+<div id="flat-carousel" class="carousel slide rounded" data-ride="carousel" data-pause="hover">
+  <div class="carousel-inner rounded">
     <% flat.photos.each do |photo| %>
       <div class="carousel-item <%= "active" if photo == flat.photos.first %>">
         <%= cl_image_tag photo.key, class: "flat-image-show d-block w-100" %>
