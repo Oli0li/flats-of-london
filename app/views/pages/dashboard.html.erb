@@ -46,10 +46,8 @@
 
   <% unless @my_properties.empty? %>
     <div data-dashboard-target="details" class="my-properties booking-details d-none">
-      <% @my_properties.each do |property| %>
-        <div>
-          <h2><%= property.name %></h2>
-        </div>
+      <% @my_properties.each do |flat| %>
+        <%= render "my_properties_summary", flat: flat %>
       <% end %>
     </div>
   <% end %>

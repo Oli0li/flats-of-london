@@ -1,0 +1,21 @@
+<div class="row summary-row">
+  <div class="col-12 mb-3">
+    <h4><%= "#{flat.name}" %></h4>
+  </div>
+  <div class="col-lg-6 col-sm-12">
+    <div class="dashboard-image">
+      <img src="<%= cl_image_path flat.photos.first.key %>" />
+    </div>
+  </div>
+  <div class="col-lg-6 col-sm-12">
+    <h5>Online since <%= flat.created_at.strftime("%-d %B %Y") %></h5>
+    <p>Capacity: <%= "#{flat.capacity} #{'guest'.pluralize(flat.capacity)}" %></p>
+    <p>Price: <%= humanized_money_with_symbol(flat.price_per_night) %> per night</p>
+    <p>Booking stats: <%= flat.bookings.select(&:past?).count %> past, <%= flat.bookings.select(&:future?).count %> upcoming</p>
+    <div class="action-buttons">
+      <button class="button blue-btn">Amend details</button>
+      <button class="button blue-btn">Add unavailable dates</button>
+      <button class="button blue-btn">Take off the market</button>
+    </div>
+  </div>
+</div>

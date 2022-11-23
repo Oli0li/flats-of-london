@@ -1,5 +1,5 @@
 .dashboard-image img {
-  height: 214px;
+  height: 217px;
   width: 100%;
   object-fit: cover;
   border-radius: 5px;
@@ -37,4 +37,10 @@
 
 .summary-row:not(:first-child) {
   margin-top: 1.5rem;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
 }
