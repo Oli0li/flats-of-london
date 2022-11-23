@@ -1,15 +1,18 @@
 <%= render "shared/navbar" %>
 
-<div class="container white-container px-5 py-4" data-controller="dashboard">
+<div class="container white-container px-5 py-5" data-controller="dashboard">
   <h1>Dashboard</h1>
 
-  <div class="d-flex">
+  <div class="d-flex mt-4">
     <% unless @current_bookings.empty? %>
-      <button class="current-bookings" data-dashboard-target="booking">Current stay</button>
+      <button class="current-bookings inactive tab" data-dashboard-target="tab">Current stay</button>
     <% end %>
-    <button class="future-bookings active" data-dashboard-target="booking">Upcoming bookings</button>
+    <button class="future-bookings active tab" data-dashboard-target="tab">Upcoming bookings</button>
     <% unless @past_bookings.empty? %>
-      <button class="past-bookings" data-dashboard-target="booking">Past bookings</button>
+      <button class="past-bookings inactive tab" data-dashboard-target="tab">Past bookings</button>
+    <% end %>
+    <% unless @my_properties.empty? %>
+      <button class="my-properties inactive tab" data-dashboard-target="tab">My properties</button>
     <% end %>
   </div>
 
@@ -34,9 +37,19 @@
   </div>
 
   <% unless @past_bookings.empty? %>
-    <div data-dashboard-target="details" class="past-bookings d-none">
+    <div data-dashboard-target="details" class="past-bookings booking-details d-none">
       <% @past_bookings.each do |booking| %>
         <%= render "flat_summary", booking: booking %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% unless @my_properties.empty? %>
+    <div data-dashboard-target="details" class="my-properties booking-details d-none">
+      <% @my_properties.each do |property| %>
+        <div>
+          <h2><%= property.name %></h2>
+        </div>
       <% end %>
     </div>
   <% end %>

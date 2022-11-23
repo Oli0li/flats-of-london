@@ -4,3 +4,37 @@
   object-fit: cover;
   border-radius: 5px;
 }
+
+.booking-details {
+  padding: 2rem;
+  border: 1px solid rgba(66, 29, 253, 1);
+  border-radius: 5px;
+  border-top-left-radius: 0;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+.tab {
+  border: none;
+  margin-right: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.tab.inactive {
+  background-color: #37a0c3;
+}
+
+.tab.active {
+  background: linear-gradient(
+    90deg,
+    rgba(91, 3, 198, 1) 0%,
+    rgba(66, 29, 253, 1) 100%
+  );
+}
+
+.summary-row:not(:first-child) {
+  margin-top: 1.5rem;
+}
