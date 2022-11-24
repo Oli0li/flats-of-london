@@ -3,7 +3,7 @@ class FlatsController < ApplicationController
   before_action :set_flat, only: [:show, :update, :destroy]
 
   def index
-    @flats = Flat.all
+    @flats = Flat.all.order(created_at: :desc)
     # Now we give Mapbox a list of coordinates for all flats
     # Same as : @markers = Flat.where.not(latitude: nil, longitude: nil)
     # Flat.geocoded = returns all instances of flats with latitude and longitude

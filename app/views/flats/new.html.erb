@@ -1,15 +1,19 @@
 <%= render "shared/navbar" %>
 
-<h1>Rent your property</h1>
+<div class="container white-container">
+  <h1>Rent your property</h1>
 
-<%= simple_form_for(@flat) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :description %>
-  <%= f.input :price_per_night %>
-  <%= f.input :capacity %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit %>
-<% end %>
+  <%= simple_form_for(@flat) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :description %>
+    <%= f.input :price_per_night  %>
+    <%= f.input :capacity, as: :numeric, input_html: { min: 1 } %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
+    <%= f.submit %>
+  <% end %>
 
-<%= link_to "Back to all flats", flats_path, class: "btn btn-primary mt-3" %>
+  <%= link_to "Back to all flats", flats_path, class: "btn btn-primary mt-3" %>
+</div>
+
+<%= render "shared/footer", content_for(:color) { 'footer-purple' } %>

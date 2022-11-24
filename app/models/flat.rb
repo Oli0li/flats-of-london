@@ -10,7 +10,7 @@ class Flat < ApplicationRecord
   validates :name, :address, :description, :price_per_night, :capacity, :user_id, presence: true
   validates :description, length: { minimum: 10, maximum: 400 }
   validates :capacity, numericality: { greater_than: 0 }
-  validates :price_per_night, numericality: { greater_than_or_equal_to: 0 }
+  validates :price_per_night, numericality: { greater_than: 0 }
 
   def unavailable_dates
     confirmed_bookings = bookings.select { |b| b.status == 'confirmed' }
