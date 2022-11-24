@@ -5,7 +5,9 @@
 
   <%= simple_form_for(@flat) do |f| %>
     <%= f.input :name %>
-    <%= f.input :address %>
+    <div data-controller="address-autocomplete", data-address-autocomplete-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">
+      <%= f.input :address, input_html: { autocomplete: "address-line1" } %>
+    </div>
     <%= f.input :description %>
     <%= f.input :price_per_night  %>
     <%= f.input :capacity, as: :numeric, input_html: { min: 1 } %>
