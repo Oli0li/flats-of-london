@@ -3,7 +3,7 @@ class Flat < ApplicationRecord
   # Source of geocoding
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-  monetize :price_per_night_cents
+  monetize :price_per_night_cents, allow_nil: true
   has_many_attached :photos
   has_many :bookings, dependent: :destroy
 
