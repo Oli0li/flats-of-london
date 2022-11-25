@@ -44,8 +44,8 @@ class FlatsController < ApplicationController
 
   def update
     if @flat.update(flat_params)
-      redirect_to dashboard_path
-      flash[:notice] = "The flat details have been updated."
+      redirect_to flat_path(@flat)
+      flash[:success] = "The flat details have been updated."
     else
       render :edit, status: :unprocessable_entity
     end
