@@ -44,3 +44,7 @@
   justify-content: center;
   gap: 5px;
 }
+
+i {
+  padding: 0 5px;
+}

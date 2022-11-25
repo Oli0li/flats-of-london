@@ -13,10 +13,10 @@
     <p>Booked for <%= "#{booking.number_of_guests} #{'guest'.pluralize(booking.number_of_guests)}" %></p>
     <p>Total paid: <%= humanized_money_with_symbol(booking.amount) %></p>
     <div class="action-buttons">
-      <button class="button blue-btn">Contact the host</button>
-      <%= link_to "See flat details", flat_path(booking.flat), class: "button blue-btn" %>
-      <button class="button blue-btn <%= booking.future? ? '' : 'd-none' %>">Edit this booking</button>
-      <%= link_to "Leave a review", flat_path(booking.flat), class: "button blue-btn" if booking.past? %>
+      <button class="button blue-btn"><i class="fa-regular fa-envelope"></i>Contact the host</button>
+      <%= link_to '<i class="fa-regular fa-eye"></i> See flat details'.html_safe, flat_path(booking.flat), class: "button blue-btn" %>
+      <button class="button blue-btn <%= booking.future? ? '' : 'd-none' %>"><i class="fa-regular fa-pen-to-square"></i>Edit this booking</button>
+      <%= link_to '<i class="fa-solid fa-user-pen"></i>Leave a review'.html_safe, flat_path(booking.flat), class: "button blue-btn" if booking.past? %>
     </div>
   </div>
 </div>
