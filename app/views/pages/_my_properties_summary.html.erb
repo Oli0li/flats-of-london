@@ -11,11 +11,11 @@
     <h5>Online since <%= flat.created_at.strftime("%-d %B %Y") %></h5>
     <p>Capacity: <%= "#{flat.capacity} #{'guest'.pluralize(flat.capacity)}" %></p>
     <p>Price: <%= humanized_money_with_symbol(flat.price_per_night) %> per night</p>
-    <p>Booking stats: <%= flat.bookings.select(&:past?).count %> past, <%= flat.bookings.select(&:future?).count %> upcoming</p>
+    <p>Booking stats: <%= flat.bookings.select { |b| b.past? && b.status == "confirmed" }.count %> past, <%= flat.bookings.select { |b| b.future? && b.status == "confirmed" }.count %> upcoming</p>
     <div class="action-buttons">
-      <button class="button blue-btn">Amend details</button>
+      <%= link_to "Amend details", edit_flat_path(flat), class: "button blue-btn" %>
       <button class="button blue-btn">Add unavailable dates</button>
-      <button class="button blue-btn">Take off the market</button>
+      <%= link_to "Take off the market", flat_path(flat), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this listing?" }, class: "btn btn-danger"%>
     </div>
   </div>
 </div>

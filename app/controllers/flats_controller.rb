@@ -1,6 +1,7 @@
 class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_flat, only: [:show, :update, :destroy]
+  before_action :validate_user, only: [:edit]
 
   def index
     @flats = Flat.all.order(created_at: :desc)
@@ -43,10 +44,10 @@ class FlatsController < ApplicationController
 
   def update
     if @flat.update(flat_params)
-      redirect_to flat_path(@flat)
+      redirect_to dashboard_path
+      flash[:notice] = "The flat details have been updated."
     else
-      @booking = Booking.new
-      render :show, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -63,5 +64,13 @@ class FlatsController < ApplicationController
 
   def flat_params
     params.require(:flat).permit(:name, :address, :description, :price_per_night, :capacity, photos: [])
+  end
+
+  def validate_user
+    @flat = Flat.find(params[:id])
+    if current_user != @flat.user
+      redirect_to root_path
+      flash[:alert] = "You cannot amend flats that aren't yours."
+    end
   end
 end

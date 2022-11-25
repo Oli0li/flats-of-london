@@ -1,0 +1,13 @@
+<div class="container white-container">
+  <h2>Edit this flat's description</h2>
+  <%= simple_form_for(@flat) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :description %>
+    <%= f.input :price_per_night, as: :numeric %>
+    <%= f.input :capacity %>
+    <%= f.submit %>
+  <% end %>
+</div>
+
+<%= render "shared/footer", content_for(:color) { 'footer-purple' } %>
