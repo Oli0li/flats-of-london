@@ -1,7 +1,7 @@
 <%= render "shared/navbar" %>
 
-<div class="container mt-4">
-  <h2>Log in</h2>
+<div class="white-container devise-container">
+  <h2 class="devise-title">Log in</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
     <div class="form-inputs">
@@ -15,8 +15,8 @@
       <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
     </div>
 
-    <div class="form-actions">
-      <%= f.submit "Log in", class: "button blue-btn" %>
+    <div class="form-actions d-flex">
+      <%= f.submit "Log in", class: "button blue-btn devise-btn" %>
     </div>
   <% end %>
 
