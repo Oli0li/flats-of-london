@@ -1,3 +1,15 @@
+.flat-title {
+  background: linear-gradient(
+    90deg,
+    rgba(91, 3, 198, 1) 0%,
+    rgba(66, 29, 253, 1) 100%
+  );
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+}
+
 .flat-image-show {
   height: 460px;
 }
@@ -20,4 +32,11 @@
 #booking-form-price-per-night {
   font-weight: 500;
   font-size: 20px;
+}
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgb(18, 6, 217);
 }
