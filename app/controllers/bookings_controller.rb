@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
         }],
         mode: 'payment',
         success_url: dashboard_url,
-        cancel_url: flats_url
+        cancel_url: flat_url(flat)
       )
 
       booking.update(checkout_session_id: session.id)

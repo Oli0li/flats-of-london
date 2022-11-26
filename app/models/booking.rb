@@ -8,10 +8,13 @@ class Booking < ApplicationRecord
   validates :number_of_guests, numericality: { only_integer: true, greater_than: 0 }
   validate :end_date_after_start_date
 
+  def duration
+    (end_date - start_date).to_i
+  end
+
   def get_amount
     return 0 if end_date.nil? || start_date.nil?
-    number_of_nights = end_date - start_date
-    number_of_nights * flat.price_per_night
+    duration * flat.price_per_night
   end
 
   def formatted_date(booking_attribute)
