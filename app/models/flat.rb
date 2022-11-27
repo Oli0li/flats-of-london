@@ -8,6 +8,7 @@ class Flat < ApplicationRecord
   has_many :bookings, dependent: :destroy
 
   validates :name, :address, :description, :price_per_night, :capacity, :user_id, :photos, presence: true
+  validates :name, length: { minimum: 4, maximum: 40 }
   validates :description, length: { minimum: 10, maximum: 400 }
   validates :capacity, numericality: { greater_than: 0 }
   validates :price_per_night, numericality: { greater_than: 0 }
