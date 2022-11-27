@@ -1,19 +1,23 @@
 <div class="container white-container">
-  <h1>Rent your property</h1>
+  <h1 class="purple-title mb-3">Rent your property</h1>
 
-  <%= simple_form_for(@flat) do |f| %>
-    <%= f.input :name %>
-    <div data-controller="address-autocomplete", data-address-autocomplete-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">
-      <%= f.input :address, input_html: { autocomplete: "address-line1" } %>
-    </div>
-    <%= f.input :description %>
-    <%= f.input :price_per_night  %>
-    <%= f.input :capacity, as: :numeric, input_html: { min: 1 } %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
-    <%= f.submit %>
-  <% end %>
+  <div class="new-flat-form mt-4">
+    <%= simple_form_for(@flat) do |f| %>
+      <%= f.input :name, input_html: { placeholder: "Beautiful studio near Barbican" } %>
+      <div data-controller="address-autocomplete", data-address-autocomplete-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">
+        <%= f.input :address, input_html: { autocomplete: "address-line1", placeholder: "1 Middle Street" } %>
+      </div>
+      <%= f.input :description, input_html: { placeholder: "Fully-equipped studio with a large kitchen space. Convenient location near Barbican station." } %>
+      <div class="same-line-fields">
+        <%= f.input :price_per_night, input_html: { placeholder: "75" }  %>
+        <%= f.input :capacity, as: :numeric, input_html: { min: 1, placeholder: "2" } %>
+      </div>
+      <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
+      <%= f.submit "Put on the market", class: "button gradient-btn new-flat-btn" %>
+    <% end %>
+  </div>
 
-  <%= link_to "Back to all flats", flats_path, class: "btn btn-primary mt-3" %>
+  <%= link_to "Back to all flats", flats_path, class: "button blue-btn mt-3" %>
 </div>
 
 <%= render "shared/footer", content_for(:color) { 'footer-purple' } %>

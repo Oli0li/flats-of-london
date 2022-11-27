@@ -51,3 +51,9 @@
   width: 100%;
   margin: 0 auto;
 }
+
+.new-flat-btn {
+  display: block;
+  margin: 25px auto;
+  width: 25%;
+}

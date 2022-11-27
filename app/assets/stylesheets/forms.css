@@ -1,0 +1,12 @@
+.new-flat-form label {
+  font-weight: 600;
+}
+
+.same-line-fields {
+  display: flex;
+  justify-content: space-between;
+}
+
+.same-line-fields div {
+  width: 48%;
+}
