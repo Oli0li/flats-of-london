@@ -23,4 +23,12 @@ class Flat < ApplicationRecord
   def booking_start_dates
     unavailable_dates.map { |date_range| date_range[:from] }.sort
   end
+
+  def set_marker
+    [{
+      lng: longitude,
+      lat: latitude,
+      image_url: helpers.asset_url("flats_of_london_marker.png")
+    }]
+  end
 end
