@@ -1,7 +1,7 @@
 .flat-card {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border: none !important;
 }
 
@@ -33,10 +33,9 @@
 
 .flat-card p {
   font-size: 12px;
-  opacity: .7;
+  opacity: 0.7;
   margin: 0;
 }
-
 
 .flat-card .flat-card-infos {
   padding: 16px;
