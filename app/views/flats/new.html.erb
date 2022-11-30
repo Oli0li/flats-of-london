@@ -6,7 +6,6 @@
       <%= f.input :name, input_html: { placeholder: "Beautiful studio near Barbican" } %>
       <div data-controller="address-autocomplete", data-address-autocomplete-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">
         <%= f.input :address, input_html: { autocomplete: "street-address", placeholder: "1 Middle Street", data: { address_autocomplete_target: "address" }} %>
-        <%#= f.input :address, as: :hidden, input_html: { data: { address_autocomplete_target: "address" }} %>
       </div>
       <%= f.input :description, input_html: { placeholder: "Fully-equipped studio with a large kitchen space. Convenient location near Barbican station." } %>
       <div class="same-line-fields">
