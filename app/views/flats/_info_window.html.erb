@@ -1,4 +1,6 @@
 <%= link_to flat_path(flat), class: "popup-link" do %>
-  <h2><%= flat.name %></h2>
+  <div class="popup-div">
+    <h3><%= flat.name %></h3>
+    <img src="<%= cl_image_path flat.photos.first.key %>" class="popup-image" />
+  </div>
 <% end %>
-  <p><%= flat.address %></p>

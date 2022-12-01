@@ -3,7 +3,6 @@
   border-radius: 5px;
 }
 
-
 .mapboxgl-popup-content p {
   margin-bottom: 0;
 }
@@ -20,4 +19,18 @@
 
 .mapboxgl-popup-content a:focus-visible {
   outline: none;
+}
+
+.popup-div {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: center;
+}
+
+.popup-image {
+  width: 275px;
+  height: 175px;
+  object-fit: cover;
+  text-align: center;
 }
